@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+    <h4 style="padding-left: 15px;">Note Search</h4> <input class="search" type="text" placeholder="search here.." [(ngModel)]="search">
+    </div><br>
+    <table class="table table-striped">
+      <tbody>
+      <tr *ngFor="let task of Notes | filter : search" (click) = "editNote(task)">
+        <td>
+            <a class="pull-right" (click) = "deleteNote(task)"><mat-icon>close</mat-icon></a>
+            <div>{{task.name}}</div>
+            <div style="padding: 5px;">{{task.description}}</div>
+            <div style="color: darkgoldenrod;"> {{task.date | date:'MMM d, y, h:mm:ss a'}}</div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
